@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MARKTR — Med Spa Growth System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/55re8gcyit.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/pghg1x9wa0.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/2gsy8om9ut.js" async type="module"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<style>
+wistia-player[media-id='55re8gcyit']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/55re8gcyit/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+wistia-player[media-id='pghg1x9wa0']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/pghg1x9wa0/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+wistia-player[media-id='2gsy8om9ut']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2gsy8om9ut/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f7f5f0;
+  --bg2: #efeee9;
+  --card: #ffffff;
+  --card-sh: 0 1px 3px rgba(0,0,0,0.03), 0 8px 28px rgba(0,0,0,0.05);
+  --card-sh-lg: 0 4px 6px rgba(0,0,0,0.03), 0 20px 50px rgba(0,0,0,0.08);
+  --purple: #7c5cbf;
+  --purple-l: #a78bfa;
+  --purple-d: #5b3d99;
+  --purple-bg: #f0ecfa;
+  --purple-bdr: #d9d0f0;
+  --pglow: rgba(124,92,191,0.15);
+  --gold: #8b6914;
+  --gold-l: #b8960a;
+  --gold-bg: #fdf6e3;
+  --gold-bdr: #edd9a3;
+  --gglow: rgba(139,105,20,0.12);
+  --tx: #1a1a2e;
+  --tx2: #5e5e74;
+  --tx3: #9494a8;
+  --bdr: #e5e3dd;
+  --bdr-l: #eeecea;
+  --ff-d: 'Cormorant Garamond', Georgia, serif;
+  --ff: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+  --ease: cubic-bezier(.25,.46,.45,.94);
+  --ease2: cubic-bezier(.16,1,.3,1);
+}
+
+html, body {
+  width: 100%; height: 100%; overflow: hidden;
+  background: var(--bg); color: var(--tx);
+  font-family: var(--ff); font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Ambient background ── */
+.bg-mesh {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(124,92,191,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 100%, rgba(167,139,250,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 30%, rgba(200,180,140,0.04) 0%, transparent 50%);
+}
+
+/* ── Deck / Slides ── */
+.deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; z-index: 1; outline: none; }
+.slide {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateX(50px);
+  transition: opacity 450ms ease, transform 450ms var(--ease);
+  will-change: transform, opacity; pointer-events: none;
+}
+.slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.slide.past { opacity: 0; transform: translateX(-50px); }
+.si {
+  width: 100%; max-width: 1200px; padding: 2.5rem 4rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+
+/* ── Typography ── */
+h1, h2 { font-family: var(--ff-d); font-weight: 700; line-height: 1.12; color: var(--tx); }
+h1 { font-size: clamp(2.4rem, 4.2vw, 3.8rem); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 0.3em; }
+h3 { font-family: var(--ff); font-size: 1.1rem; font-weight: 600; color: var(--tx); margin-bottom: 0.25em; }
+.sub { font-size: clamp(0.95rem, 1.3vw, 1.12rem); color: var(--tx2); font-weight: 300; line-height: 1.6; }
+.brand {
+  font-family: var(--ff-d); font-weight: 700; font-size: 1.1rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple);
+  margin-bottom: 1.8rem;
+  position: relative; display: inline-block;
+}
+.brand::after {
+  content: ''; position: absolute; bottom: -6px; left: 15%; right: 15%;
+  height: 2px; background: linear-gradient(90deg, transparent, var(--purple-l), transparent);
+}
+.gold { color: var(--gold); }
+
+/* ── SVG Icons ── */
+.ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--purple-bg); color: var(--purple); flex-shrink: 0;
+}
+.ic svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ic-lg { width: 52px; height: 52px; border-radius: 14px; }
+.ic-lg svg { width: 26px; height: 26px; }
+.ic-gold { background: var(--gold-bg); color: var(--gold); }
+
+/* ── Animations ── */
+.an { opacity: 0; transform: translateY(16px); transition: opacity 0.12s ease, transform 0.12s ease; }
+.slide.active .an { opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s var(--ease2); }
+.slide.active .a1 { transition-delay: .06s; }
+.slide.active .a2 { transition-delay: .12s; }
+.slide.active .a3 { transition-delay: .18s; }
+.slide.active .a4 { transition-delay: .24s; }
+.slide.active .a5 { transition-delay: .30s; }
+.slide.active .a6 { transition-delay: .36s; }
+.slide.active .a7 { transition-delay: .42s; }
+.slide.active .a8 { transition-delay: .48s; }
+.slide.active .a9 { transition-delay: .54s; }
+.slide.active .a10 { transition-delay: .60s; }
+
+/* ── Nav ── */
+.nav-a {
+  position: fixed; top: 50%; transform: translateY(-50%); z-index: 100;
+  background: var(--card); border: 1px solid var(--bdr); color: var(--tx3);
+  width: 40px; height: 64px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); font-family: var(--ff);
+}
+.nav-prev { left: 16px; }
+.nav-next { right: 16px; }
+.nav-a:hover { color: var(--purple); border-color: var(--purple-bdr); box-shadow: 0 4px 16px var(--pglow); }
+.nav-a.hidden { opacity: 0; pointer-events: none; }
+
+/* ── Progress ── */
+.progress { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 100; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; border: none;
+  background: var(--bdr); cursor: pointer; transition: all 0.4s ease; padding: 0;
+}
+.dot.active { background: var(--purple); box-shadow: 0 0 8px var(--pglow); transform: scale(1.35); }
+.dot:hover:not(.active) { background: var(--tx3); }
+.snum { position: fixed; bottom: 20px; right: 30px; font-size: 0.72rem; color: var(--tx3); z-index: 100; font-variant-numeric: tabular-nums; }
+
+/* ════════════════ SLIDE 1 — Opening ════════════════ */
+.slide-1 .si { gap: 0.3rem; }
+.slide-1 h1 { font-size: clamp(2.6rem, 4.5vw, 4rem); max-width: 880px; margin-bottom: 0.3em; line-height: 1.08; }
+.slide-1 h1 em { font-style: normal; background: linear-gradient(135deg, var(--purple-d), var(--purple-l)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.slide-1 .sub { max-width: 560px; margin-top: 0.5rem; }
+.slide-1::before {
+  content: ''; position: absolute; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(124,92,191,0.07) 0%, transparent 70%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+}
+
+/* ════════════════ SLIDE 2 — Problem ════════════════ */
+.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0 2rem; width: 100%; max-width: 960px; }
+.pain-card {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 16px;
+  padding: 2rem 1.5rem; text-align: center; box-shadow: var(--card-sh);
+  transition: all 0.3s ease;
+}
+.pain-card:hover { transform: translateY(-4px); box-shadow: var(--card-sh-lg); }
+.pain-card .ic { margin: 0 auto 1rem; background: #fef0f0; color: #c0392b; }
+.pain-card h3 { margin-bottom: 0.5rem; }
+.pain-card p { color: var(--tx2); font-size: 0.9rem; line-height: 1.5; font-weight: 300; }
+.bottom-line { color: var(--tx2); font-size: 1rem; font-weight: 400; max-width: 560px; line-height: 1.5; }
+.bottom-line strong { color: var(--tx); }
+
+/* ════════════════ SLIDE 3 — 7-Step System ════════════════ */
+.slide-3 .si { max-width: 1300px; }
+.flow-wrap { display: flex; align-items: flex-start; justify-content: center; width: 100%; margin-top: 2rem; gap: 0; position: relative; }
+.flow-step {
+  display: flex; flex-direction: column; align-items: center; flex: 1;
+  position: relative; padding: 0.5rem 0.3rem; cursor: pointer;
+  transition: all 0.35s var(--ease);
+}
+.flow-wrap:hover .flow-step:not(:hover) { opacity: 0.45; transform: scale(0.94); }
+.flow-step:hover { transform: scale(1.08); z-index: 10; opacity: 1 !important; }
+.flow-circle {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-l));
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 0.6rem; position: relative; z-index: 2;
+  box-shadow: 0 4px 16px var(--pglow); transition: all 0.35s ease;
+}
+.flow-step:hover .flow-circle { box-shadow: 0 6px 24px rgba(124,92,191,0.3); transform: scale(1.12); }
+.flow-circle svg { width: 22px; height: 22px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.flow-name { font-size: 0.78rem; font-weight: 600; color: var(--tx); text-align: center; line-height: 1.3; max-width: 100px; transition: color 0.3s ease; }
+.flow-step:hover .flow-name { color: var(--purple); }
+.flow-step:not(:last-child)::after {
+  content: ''; position: absolute; top: 26px; left: calc(50% + 30px); width: calc(100% - 60px);
+  height: 2px; background: linear-gradient(90deg, var(--purple-bdr), var(--purple-l) 50%, var(--purple-bdr));
+  z-index: 1; opacity: 0.5;
+}
+.flow-detail {
+  position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%) translateY(6px);
+  width: 220px; background: var(--card); border: 1px solid var(--purple-bdr);
+  border-radius: 14px; padding: 1rem 1.1rem; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: var(--card-sh-lg); text-align: left; font-size: 0.82rem;
+  color: var(--tx2); line-height: 1.5; z-index: 20;
+}
+.flow-step:hover .flow-detail { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.flow-detail strong { color: var(--tx); font-weight: 600; display: block; margin-bottom: 0.3rem; font-size: 0.85rem; }
+
+/* ════════════════ SLIDE 4 — 3 Pillars ════════════════ */
+.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; width: 100%; max-width: 1000px; }
+.pillar-card {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 18px;
+  padding: 2.2rem 1.8rem; text-align: center; box-shadow: var(--card-sh);
+  transition: all 0.35s ease; position: relative; overflow: hidden;
+}
+.pillar-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-l));
+}
+.pillar-card:nth-child(2)::before { background: linear-gradient(90deg, var(--purple-l), #c4b5fd); }
+.pillar-card:nth-child(3)::before { background: linear-gradient(90deg, var(--purple-d), var(--purple)); }
+.pillar-card:hover { transform: translateY(-5px); box-shadow: var(--card-sh-lg); }
+.pillar-card .ic { margin: 0 auto 1.2rem; }
+.pillar-card h3 { font-family: var(--ff-d); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+.pillar-card p { color: var(--tx2); font-size: 0.92rem; font-weight: 300; line-height: 1.5; }
+
+/* ════════════════ SLIDE 5 — Pillar 1 (Cake Analogy) ════════════════ */
+.slide-5 .si { max-width: 1100px; }
+.cake-compare {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem;
+  align-items: stretch; margin-top: 1.5rem; width: 100%;
+}
+.cake-side {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 18px;
+  padding: 1.8rem; text-align: left; box-shadow: var(--card-sh); transition: all 0.3s ease;
+}
+.cake-side:hover { box-shadow: var(--card-sh-lg); }
+.cake-bad { border-top: 3px solid #e74c3c; }
+.cake-good { border-top: 3px solid var(--gold-l); }
+.cake-side h3 { font-size: 1rem; margin-bottom: 1rem; }
+.cake-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--bdr-l); font-size: 0.88rem; color: var(--tx2); }
+.cake-item:last-child { border-bottom: none; }
+.cake-item .price { font-weight: 600; }
+.cake-bad .cake-item .price { color: #e74c3c; }
+.cake-result {
+  margin-top: 1rem; padding: 0.8rem; border-radius: 10px; text-align: center; font-size: 0.85rem; font-weight: 600;
+}
+.cake-bad .cake-result { background: #fef0f0; color: #c0392b; }
+.cake-good .cake-result { background: var(--gold-bg); color: var(--gold); }
+.cake-vs {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-d); font-size: 1.6rem; font-weight: 700; color: var(--tx3);
+}
+.cake-upsell {
+  margin-top: 1.5rem; padding: 1rem 1.5rem; background: var(--purple-bg);
+  border: 1px solid var(--purple-bdr); border-radius: 12px;
+  font-size: 0.95rem; color: var(--tx2);
+}
+.cake-upsell strong { color: var(--purple); }
+
+/* ════════════════ SLIDE 6 — Pillar 2 (Authority Ads) ════════════════ */
+.slide-6 .si { max-width: 1100px; }
+.two-col { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; margin-top: 1.5rem; width: 100%; }
+.col-l { text-align: left; }
+.diff-block { margin-bottom: 1.5rem; }
+.diff-block h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tx3); margin-bottom: 0.8rem; font-weight: 600; }
+.diff-row {
+  display: flex; gap: 1rem; margin-bottom: 0.7rem; font-size: 0.92rem; color: var(--tx2);
+  line-height: 1.5; font-weight: 300;
+}
+.diff-row .ic { width: 28px; height: 28px; min-width: 28px; border-radius: 8px; }
+.diff-row .ic svg { width: 14px; height: 14px; }
+.diff-bad .ic { background: #fef0f0; color: #c0392b; }
+.diff-good .ic { background: #edf9ee; color: #27ae60; }
+.video-area {
+  background: #000; border: none; border-radius: 16px;
+  aspect-ratio: 9/16; position: relative; overflow: hidden;
+  max-height: 65vh; margin: 0 auto;
+}
+.video-area .ic-lg { background: var(--purple-bg); color: var(--purple); }
+.video-area p { font-size: 0.85rem; color: var(--tx3); font-weight: 400; }
+.video-area small { font-size: 0.72rem; color: var(--tx3); opacity: 0.7; }
+
+/* ════════════════ SLIDE 7 — Pillar 3 (Booking Machine) ════════════════ */
+.slide-7 .si { max-width: 1050px; }
+.booking-layers { display: flex; flex-direction: column; gap: 0.8rem; margin: 1.5rem 0; width: 100%; }
+.bl-card {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.2rem;
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 16px;
+  padding: 1.2rem 1.5rem; text-align: left; box-shadow: var(--card-sh);
+  transition: all 0.35s ease; cursor: pointer; position: relative;
+}
+.bl-card:hover { box-shadow: var(--card-sh-lg); transform: translateX(4px); border-color: var(--purple-bdr); }
+.bl-text h3 { font-size: 1.05rem; margin-bottom: 0.15rem; }
+.bl-text p { color: var(--tx2); font-size: 0.88rem; font-weight: 300; line-height: 1.4; }
+.bl-peek {
+  font-size: 0.72rem; color: var(--purple); font-weight: 500;
+  opacity: 0; transition: opacity 0.3s ease; white-space: nowrap;
+}
+.bl-card:hover .bl-peek { opacity: 1; }
+.bl-preview {
+  position: absolute; left: 50%; bottom: calc(100% + 8px);
+  transform: translateX(-50%) translateY(-6px) scale(0.95);
+  width: 300px; background: var(--card); border: 1px solid var(--purple-bdr);
+  border-radius: 14px; padding: 1rem; box-shadow: var(--card-sh-lg);
+  opacity: 0; pointer-events: none; transition: all 0.35s ease; z-index: 20;
+}
+.bl-card:hover .bl-preview { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); pointer-events: auto; }
+.chat-bubble { padding: 0.5rem 0.8rem; border-radius: 12px; font-size: 0.75rem; margin-bottom: 0.4rem; max-width: 85%; line-height: 1.4; }
+.chat-in { background: var(--purple-bg); color: var(--purple-d); margin-left: auto; border-bottom-right-radius: 4px; }
+.chat-out { background: #f0f0f0; color: var(--tx); border-bottom-left-radius: 4px; }
+.call-visual { text-align: center; }
+.call-visual .ic-lg { margin: 0 auto 0.5rem; background: #edf9ee; color: #27ae60; }
+.call-visual p { font-size: 0.78rem; color: var(--tx2); }
+.qual-checklist { text-align: left; }
+.qual-checklist div { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--tx2); margin-bottom: 0.4rem; }
+.qual-checklist .check { color: #27ae60; font-weight: 700; }
+.booking-note {
+  background: var(--purple-bg); border: 1px solid var(--purple-bdr);
+  border-radius: 12px; padding: 0.8rem 1.2rem; font-size: 0.9rem;
+  font-weight: 500; color: var(--tx);
+}
+
+/* ════════════════ SLIDE 8 — Social Proof ════════════════ */
+.slide-8 .si { max-width: 1100px; }
+.tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; width: 100%; }
+.tcard {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 16px;
+  padding: 1.2rem; text-align: left; box-shadow: var(--card-sh);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  position: relative; z-index: 1;
+}
+.tcard:hover { transform: scale(1.35); z-index: 10; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+.tcard-media {
+  width: 100%; aspect-ratio: 16/9; border-radius: 12px; background: var(--bg2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0.8rem;
+  border: none; font-size: 0.72rem; color: var(--tx3); font-weight: 400;
+  overflow: hidden; gap: 0.3rem;
+  position: relative; transition: filter 0.35s ease, border-color 0.35s ease;
+  border: 2px solid transparent;
+}
+.tcard .tcard-media::after {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--purple); opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpolygon points='9.5,7.5 16.5,12 9.5,16.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center; background-size: 22px;
+  transition: transform 0.35s var(--ease2), opacity 0.35s ease;
+  z-index: 5; pointer-events: none;
+}
+.tcard:hover .tcard-media::after { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+.tcard:hover .tcard-media { filter: brightness(1.08); border-color: var(--purple); box-shadow: 0 0 16px var(--pglow); }
+.tcard-media img { width: 100%; height: 100%; object-fit: cover; border: none; }
+.tcard-media video { width: 100%; height: 100%; object-fit: cover; border: none; border-radius: 12px; }
+.tcard-media iframe { width: 100%; height: 100%; border: none; border-radius: 12px; }
+.tcard-media small { font-size: 0.65rem; opacity: 0.6; }
+.tcard-media wistia-player { width: 100%; height: 100%; border-radius: 12px; }
+.tquote-icon { color: var(--purple-l); font-family: var(--ff-d); font-size: 2.5rem; line-height: 0.8; opacity: 0.4; }
+.tquote { color: var(--tx2); font-size: 0.88rem; font-style: italic; line-height: 1.6; margin: 0.5rem 0 0.8rem; font-weight: 300; }
+.tauthor { font-weight: 600; font-size: 0.82rem; color: var(--tx); }
+.tclinic { font-size: 0.75rem; color: var(--tx3); margin-top: 0.1rem; }
+.tmetric {
+  display: inline-block; margin-top: 0.6rem; padding: 0.25rem 0.7rem;
+  background: var(--gold-bg); border: 1px solid var(--gold-bdr); border-radius: 20px;
+  font-size: 0.72rem; font-weight: 600; color: var(--gold);
+}
+.pnote { color: var(--tx3); font-size: 0.72rem; font-style: italic; margin-top: 1rem; }
+.thumb-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px; margin-top: 1.2rem; width: 100%;
+}
+.thumb-grid img {
+  width: 100%; border-radius: 8px;
+  transition: transform 0.25s ease, filter 0.25s ease; cursor: pointer;
+}
+.thumb-grid img:hover { transform: scale(1.08); z-index: 5; filter: brightness(1.1); }
+
+/* ════════════════ SLIDE 9 — Thumbnail Wall ════════════════ */
+.slide-9-wall .si { max-width: 1300px; }
+.slide-9-wall .thumb-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+
+/* ════════════════ SLIDE 10 — ROI Calculator ════════════════ */
+.slide-10 .si { max-width: 1200px; padding-top: 1.2rem; padding-bottom: 1rem; }
+.calc-layout { display: grid; grid-template-columns: 2fr 3fr; gap: 3rem; width: 100%; margin-top: 1rem; align-items: start; }
+.calc-sliders { text-align: left; padding-top: 0.3rem; }
+.sg { margin-bottom: 1.2rem; }
+.sg-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.sg-name { font-size: 0.9rem; color: var(--tx2); font-weight: 400; }
+.sg-val { font-size: 1.15rem; font-weight: 700; color: var(--tx); font-variant-numeric: tabular-nums; }
+input[type="range"] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 3px;
+  outline: none; cursor: pointer;
+  background: linear-gradient(to right, var(--purple) 0%, var(--purple-l) var(--fill, 50%), var(--bdr) var(--fill, 50%), var(--bdr) 100%);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--card); cursor: pointer;
+  box-shadow: 0 0 0 3px var(--purple), 0 2px 8px rgba(0,0,0,0.15);
+  border: none; transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover { box-shadow: 0 0 0 3px var(--purple), 0 0 12px var(--pglow), 0 2px 8px rgba(0,0,0,0.15); transform: scale(1.1); }
+input[type="range"]::-moz-range-track { height: 6px; border-radius: 3px; background: var(--bdr); border: none; }
+input[type="range"]::-moz-range-progress { background: linear-gradient(to right, var(--purple), var(--purple-l)); height: 6px; border-radius: 3px; }
+input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--card); cursor: pointer; box-shadow: 0 0 0 3px var(--purple), 0 2px 8px rgba(0,0,0,0.15); border: none; }
+.clients-display {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.8rem 1.1rem; background: var(--purple-bg); border: 1px solid var(--purple-bdr);
+  border-radius: 12px; margin-top: 0.3rem;
+}
+.clients-display span:first-child { font-size: 0.9rem; color: var(--tx2); }
+.clients-val { font-size: 1.6rem; font-weight: 700; color: var(--purple); font-variant-numeric: tabular-nums; }
+.calc-results { display: flex; flex-direction: column; gap: 0.8rem; }
+.calc-hero {
+  background: linear-gradient(135deg, var(--gold-bg), #fef3d6);
+  border: 2px solid var(--gold-bdr); border-radius: 20px;
+  padding: 1.5rem 2rem; text-align: center;
+}
+.calc-hero-label {
+  font-size: 0.85rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.3rem;
+}
+.calc-hero-num {
+  font-family: var(--ff-d); font-size: clamp(2.8rem, 4vw, 4rem); font-weight: 700;
+  color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.calc-hero-sub {
+  font-size: 0.8rem; color: var(--tx3); font-weight: 400; margin-top: 0.3rem;
+}
+.calc-secondary {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 16px;
+  padding: 1rem 1.5rem; text-align: center; box-shadow: var(--card-sh);
+}
+.calc-sec-label {
+  font-size: 0.75rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--tx3); margin-bottom: 0.15rem;
+}
+.calc-sec-num {
+  font-family: var(--ff-d); font-size: 2.2rem; font-weight: 700;
+  color: var(--purple); font-variant-numeric: tabular-nums;
+}
+.calc-stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.calc-stat {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 12px;
+  padding: 0.6rem 0.5rem; text-align: center; box-shadow: var(--card-sh);
+}
+.calc-stat-label { font-size: 0.68rem; color: var(--tx3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; }
+.calc-stat-val { font-family: var(--ff-d); font-size: 1.3rem; font-weight: 700; color: var(--tx); display: block; margin-top: 0.1rem; font-variant-numeric: tabular-nums; }
+.calc-bars {
+  width: 100%; margin-top: 0.8rem; padding: 1rem 1.2rem;
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 14px; box-shadow: var(--card-sh);
+}
+.bar-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.bar-row:last-child { margin-bottom: 0; }
+.bar-lbl { width: 110px; font-size: 0.78rem; color: var(--tx3); text-align: right; flex-shrink: 0; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
+.bar-track { flex: 1; height: 36px; background: var(--bg2); border-radius: 8px; overflow: hidden; }
+.bar-fill {
+  height: 100%; border-radius: 8px; transition: width 700ms var(--ease2);
+  display: flex; align-items: center; padding: 0 12px; font-size: 0.82rem;
+  font-weight: 700; min-width: fit-content; white-space: nowrap;
+}
+.bar-ad { background: linear-gradient(90deg, #d1d5db, #9ca3af); color: #fff; }
+.bar-rev { background: linear-gradient(90deg, var(--gold-l), var(--gold)); color: #fff; }
+
+/* ════════════════ SLIDE 10 — Investment ════════════════ */
+.pricing-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; width: 100%; max-width: 780px; }
+.price-card {
+  background: var(--card); border: 1px solid var(--bdr); border-radius: 20px;
+  padding: 2.2rem 1.8rem 1.8rem; position: relative; text-align: center;
+  box-shadow: var(--card-sh); transition: all 0.3s ease;
+}
+.price-card:hover { box-shadow: var(--card-sh-lg); transform: translateY(-3px); }
+.price-card.pop { border-color: var(--purple); box-shadow: 0 0 0 1px var(--purple), var(--card-sh-lg); }
+.pop-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--purple), var(--purple-l)); color: #fff;
+  padding: 4px 18px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+}
+.price-old { font-size: 0.95rem; color: var(--tx3); text-decoration: line-through; margin-bottom: 0.15rem; }
+.price-amt { font-family: var(--ff-d); font-size: 2.8rem; font-weight: 700; color: var(--tx); margin-bottom: 0.15rem; }
+.price-card.pop .price-amt { color: var(--purple); }
+.price-period { font-size: 0.85rem; color: var(--tx2); margin-bottom: 1.2rem; font-weight: 300; }
+.price-feat { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.price-feat li { font-size: 0.85rem; color: var(--tx2); display: flex; align-items: center; gap: 0.45rem; justify-content: center; }
+.price-feat .pc { color: var(--purple); font-weight: 600; }
+.guarantee {
+  margin-top: 2rem; width: 100%; max-width: 780px;
+  background: var(--gold-bg); border: 2px solid var(--gold-bdr);
+  border-radius: 18px; padding: 1.5rem 2rem; text-align: center;
+}
+.guarantee .ic-lg { margin: 0 auto 0.6rem; background: rgba(139,105,20,0.12); color: var(--gold); }
+.guarantee h3 {
+  font-family: var(--ff-d); font-size: 1.4rem; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.guarantee p { font-size: 1rem; color: var(--tx); font-weight: 400; line-height: 1.6; }
+.guarantee .zer { font-size: 0.88rem; color: var(--gold); font-weight: 600; margin-top: 0.3rem; display: block; }
+
+/* ── Cake icon cards ── */
+.cake-icon {
+  width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;
+  border-radius: 16px; margin: 0 auto 0.5rem;
+}
+.cake-icon svg { width: 44px; height: 44px; }
+.cake-icon-bad { background: #fef0f0; }
+.cake-icon-bad svg { stroke: #c0392b; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cake-icon-good { background: var(--gold-bg); }
+.cake-icon-good svg { fill: var(--gold); stroke: none; }
+.cake-icons-row { display: flex; gap: 1.2rem; justify-content: center; align-items: flex-start; margin: 1rem 0; }
+.cake-icon-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.cake-icon-item span { font-size: 0.78rem; color: var(--tx3); font-weight: 500; }
+.cake-side-label { font-size: 0.88rem; color: var(--tx2); text-align: center; margin-top: 0.8rem; font-weight: 400; line-height: 1.4; }
+.cake-side-label strong { color: var(--tx); }
+.cake-good-center { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.cake-icon-lg { width: 100px; height: 100px; border-radius: 20px; margin: 1.5rem auto; }
+.cake-icon-lg svg { width: 60px; height: 60px; }
+
+/* ── Gold shimmer ── */
+@keyframes gpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.8; } }
+.gshim { animation: gpulse 2.5s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<button class="nav-a nav-prev hidden" aria-label="Previous">&#8249;</button>
+<button class="nav-a nav-next" aria-label="Next">&#8250;</button>
+<div class="progress" id="progress"></div>
+<div class="snum" id="snum">1 / 11</div>
+
+<div class="deck" tabindex="-1">
+
+<!-- ═══ SLIDE 1 — Opening Hook ═══ -->
+<section class="slide slide-1" data-slide="0">
+  <div class="si">
+    <div class="brand an a1">MARKTR</div>
+    <h1 class="an a2">The Aesthetic Client<br><em>Revenue System</em></h1>
+    <p class="sub an a3">The proven process to consistently generate high-paying med spa clients &mdash; guaranteed.</p>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 2 — Problem ═══ -->
+<section class="slide slide-2" data-slide="1">
+  <div class="si">
+    <h2 class="an a1">You've Been Here Before.</h2>
+    <div class="pain-grid">
+      <div class="pain-card an a2">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>The Commodity Trap</h3>
+        <p>You're advertising treatments with discounts — competing on price with every other clinic in your area</p>
+      </div>
+      <div class="pain-card an a3">
+        <div class="ic"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+        <h3>Invisible Authority</h3>
+        <p>Your ads look like everyone else's — AI images, stock photos, generic promos. No trust, no brand.</p>
+      </div>
+      <div class="pain-card an a4">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></svg></div>
+        <h3>Leaky Follow-Up</h3>
+        <p>Leads come in but no one calls them fast enough. 70% go cold before they ever book.</p>
+      </div>
+    </div>
+    <p class="bottom-line an a5">You don't need more leads. You need <strong>clients who actually walk through your door.</strong></p>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 3 — 7-Step System ═══ -->
+<section class="slide slide-3" data-slide="2">
+  <div class="si">
+    <h2 class="an a1">The 7-Step Client Acquisition System</h2>
+    <p class="sub an a2">From first impression to loyal client — every step is automated and optimized.</p>
+    <div class="flow-wrap">
+      <div class="flow-step an a3">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg></div>
+        <div class="flow-name">Irresistible<br>Intro Offer</div>
+        <div class="flow-detail"><strong>Step 1</strong>Design a value-packed intro offer — typically $97 to $297 depending on your services — with 3–5× perceived value. Gets them in the door.</div>
+      </div>
+      <div class="flow-step an a4">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M10 9l4 2.5L10 14V9z"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="flow-name">Aesthetic<br>Authority Ads</div>
+        <div class="flow-detail"><strong>Step 2</strong>Custom video ads and UGC that position you as the expert — not template images.</div>
+      </div>
+      <div class="flow-step an a5">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+        <div class="flow-name">Acquire<br>the Client</div>
+        <div class="flow-detail"><strong>Step 3</strong>Capture qualified leads through optimized funnels and landing pages.</div>
+      </div>
+      <div class="flow-step an a6">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="flow-name">Triple<br>Qualification</div>
+        <div class="flow-detail"><strong>Step 4</strong>AI + SMS + Email + phone calls to double-qualify every lead — financially and medically.</div>
+      </div>
+      <div class="flow-step an a7">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="flow-name">Appointment<br>Booking Machine</div>
+        <div class="flow-detail"><strong>Step 5</strong>AI books appointments 24/7, collects deposits, and syncs to your calendar.</div>
+      </div>
+      <div class="flow-step an a8">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
+        <div class="flow-name">90% Show-Up<br>Ratio</div>
+        <div class="flow-detail"><strong>Step 6</strong>Automated reminders + deposit system ensures 9 out of 10 booked clients actually show.</div>
+      </div>
+      <div class="flow-step an a9">
+        <div class="flow-circle"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 002 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0022 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <div class="flow-name">Tailor Package<br>System</div>
+        <div class="flow-detail"><strong>Step 7</strong>Custom upsell packages built around each client's needs — maximize lifetime value.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 4 — 3 Pillars ═══ -->
+<section class="slide slide-4" data-slide="3">
+  <div class="si">
+    <h2 class="an a1">Three Pillars. One System.</h2>
+    <p class="sub an a2">Everything works together so nothing falls through the cracks.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card an a3">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg></div>
+        <h3>The Irresistible Intro Offer</h3>
+        <p>A value-packed first visit built around your client's pain point — not a discount. Earns trust and opens the door to long-term revenue.</p>
+      </div>
+      <div class="pillar-card an a4">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M10 9l4 2.5L10 14V9z"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Aesthetic Authority Ads</h3>
+        <p>Pain-point-led ads using real content from your clinic. Positions you as the authority — not another clinic running promos.</p>
+      </div>
+      <div class="pillar-card an a5">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>The Booking Machine</h3>
+        <p>AI + human follow-up that books, qualifies, and confirms — 24/7, no lead wasted</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 5 — Pillar 1: Intro Offer (Cake Analogy) ═══ -->
+<section class="slide slide-5" data-slide="4">
+  <div class="si">
+    <h2 class="an a1">Pillar 1: The Irresistible Intro Offer</h2>
+    <p class="sub an a2">Stop competing on price. Start owning your offer.</p>
+    <div class="cake-compare">
+      <div class="cake-side cake-bad an a3">
+        <h3 style="text-align:center">Selling Ingredients Separately</h3>
+        <div class="cake-icons-row">
+          <div class="cake-icon-item">
+            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🌾</span></div>
+            <span>Flour</span>
+          </div>
+          <div class="cake-icon-item">
+            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🥚</span></div>
+            <span>Eggs</span>
+          </div>
+          <div class="cake-icon-item">
+            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🍬</span></div>
+            <span>Sugar</span>
+          </div>
+        </div>
+        <div class="cake-side-label">Selling treatments with discounts = <strong>price war</strong>. You compete on price. You attract bargain hunters.</div>
+      </div>
+      <div class="cake-vs an a4">vs</div>
+      <div class="cake-side cake-good cake-good-center an a5">
+        <h3 style="text-align:center">The Whole Cake</h3>
+        <div class="cake-icon cake-icon-lg cake-icon-good"><span style="font-size:72px">🎂</span></div>
+        <div class="cake-side-label">A complete solution named after your client's pain point = <strong>irresistible</strong><br>Entry price: <strong style="color:var(--gold);font-size:1.1rem">$97–$297+</strong></div>
+      </div>
+    </div>
+    <div class="cake-upsell an a6">We've found <strong>$97</strong> to be the sweet spot, but the entry price is custom to your clinic and treatments. The key: we don't lead with price — we lead with the problem your ideal client wants to fix. Average upsell per intro client: <strong>$500&ndash;$2,000+</strong>.</div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 6 — Pillar 2: Authority Ads ═══ -->
+<section class="slide slide-6" data-slide="5">
+  <div class="si">
+    <h2 class="an a1">Pillar 2: Aesthetic Authority Ads</h2>
+    <p class="sub an a2">We position you as the authority in your area — with ads built around pain points, not price tags.</p>
+    <div class="two-col">
+      <div class="col-l">
+        <div class="diff-block an a3">
+          <h3>What other agencies do</h3>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>AI-generated images and generic template ads</span></div>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>Every ad leads with a discount — training your audience to price-shop</span></div>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>No brand authority — you look like every other clinic in your area</span></div>
+        </div>
+        <div class="diff-block an a4">
+          <h3>What we do</h3>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Real video content and client transformations from your clinic</span></div>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Every ad is structured around a pain point your ideal client recognizes</span></div>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Positions you as the trusted authority — people choose you for the solution, not the price</span></div>
+        </div>
+      </div>
+      <div class="an a5">
+        <!--
+          ═══════════════════════════════════════════════════
+          TO EMBED YOUR AD VIDEO, replace the div.video-area
+          below with ONE of these options:
+
+          OPTION 1 — Local video file:
+          <video src="your-video.mp4" controls autoplay muted loop
+            style="width:100%;aspect-ratio:16/9;border-radius:16px;object-fit:cover"></video>
+
+          OPTION 2 — YouTube:
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            frameborder="0" allowfullscreen
+            style="width:100%;aspect-ratio:16/9;border-radius:16px"></iframe>
+
+          OPTION 3 — Vimeo:
+          <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID"
+            frameborder="0" allowfullscreen
+            style="width:100%;aspect-ratio:16/9;border-radius:16px"></iframe>
+          ═══════════════════════════════════════════════════
+        -->
+        <div class="video-area">
+          <iframe src="https://player.vimeo.com/video/1164371011?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+            frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:16px;"
+            title="MARKTR Ad Example"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 7 — Pillar 3: Booking Machine ═══ -->
+<section class="slide slide-7" data-slide="6">
+  <div class="si">
+    <h2 class="an a1">Pillar 3: The Booking Machine</h2>
+    <p class="sub an a2">Multi-channel outreach that books, qualifies, and confirms — so no lead ever slips through the cracks.</p>
+    <div class="booking-layers">
+      <div class="bl-card an a3">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="bl-text">
+          <h3>AI Booking Agent</h3>
+          <p>Responds via AI, SMS, and email within 60 seconds, 24/7. Books directly into your calendar with a deposit.</p>
+        </div>
+
+        <div class="bl-preview">
+          <div class="chat-out">Hi! I saw your Botox special. Do you have availability this week?</div>
+          <div class="chat-in">Hi Sarah! Yes, we have openings Thursday and Friday. Would you like to book a consultation? 😊</div>
+          <div class="chat-out">Thursday works!</div>
+          <div class="chat-in">Perfect! I've reserved 2:30 PM Thursday for you. A $50 deposit secures your spot. Here's the link:</div>
+          <div style="font-size:0.68rem;color:var(--tx3);text-align:center;margin-top:0.3rem">Under 60 seconds — 24/7</div>
+        </div>
+      </div>
+      <div class="bl-card an a4">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7a2 2 0 011.72 2z"/></svg></div>
+        <div class="bl-text">
+          <h3>Live Concierge</h3>
+          <p>A real person calls every lead for follow-up. Complex cases, hesitant prospects — no one slips through.</p>
+        </div>
+
+        <div class="bl-preview">
+          <div class="call-visual">
+            <div class="ic-lg"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7a2 2 0 011.72 2z"/></svg></div>
+            <p><strong style="color:var(--tx)">Personal follow-up call</strong></p>
+            <p>Handles objections, answers questions, and books the appointment over the phone.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bl-card an a5">
+        <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="bl-text">
+          <h3>Double Qualification</h3>
+          <p>Every lead is verified financially (can they afford it?) and medically (no health contraindications) before they reach your chair.</p>
+        </div>
+
+        <div class="bl-preview">
+          <div class="qual-checklist">
+            <div><span class="check">&#10003;</span> Financial verification</div>
+            <div><span class="check">&#10003;</span> Medical screening</div>
+            <div><span class="check">&#10003;</span> AI pre-qualification</div>
+            <div><span class="check">&#10003;</span> SMS confirmation</div>
+            <div><span class="check">&#10003;</span> Email follow-up</div>
+            <div><span class="check">&#10003;</span> Phone call verification</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-note an a6">Only qualified, deposit-confirmed clients make it to your chair.</div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 8 — Social Proof ═══ -->
+<section class="slide slide-8" data-slide="7">
+  <div class="si">
+    <h2 class="an a1">This Has Already Worked for Clinics Like Yours</h2>
+    <p class="sub an a2">Here are a few results from clinics using the MARKTR system.</p>
+    <div class="tgrid">
+      <!--
+        ══════════════════════════════════════════════════════════
+        HOW TO ADD YOUR MEDIA TO EACH CARD:
+
+        For a CLIENT PHOTO — replace the tcard-media div contents:
+          <div class="tcard-media">
+            <img src="photos/client1.jpg" alt="Dr. Smith">
+          </div>
+
+        For a VIDEO TESTIMONIAL (local file):
+          <div class="tcard-media">
+            <video src="videos/testimonial1.mp4" controls></video>
+          </div>
+
+        For a YOUTUBE VIDEO TESTIMONIAL:
+          <div class="tcard-media">
+            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+          </div>
+
+        For a VIMEO VIDEO TESTIMONIAL:
+          <div class="tcard-media">
+            <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID" allowfullscreen></iframe>
+          </div>
+
+        You can mix and match — one card can have a photo,
+        another a video. Just replace the contents inside tcard-media.
+        ══════════════════════════════════════════════════════════
+      -->
+      <div class="tcard an a3">
+        <div class="tcard-media"><wistia-player media-id="55re8gcyit" aspect="1.7777777777777777"></wistia-player></div>
+        <div class="tauthor">Visage Med Spa</div>
+        <div class="tmetric">180 appointments in 14 days</div>
+      </div>
+      <div class="tcard an a4">
+        <div class="tcard-media"><wistia-player media-id="pghg1x9wa0" aspect="1.7777777777777777"></wistia-player></div>
+        <div class="tauthor">Skin Sculptor Studio</div>
+        <div class="tmetric">130 high-ticket clients</div>
+      </div>
+      <div class="tcard an a5">
+        <div class="tcard-media"><wistia-player media-id="2gsy8om9ut" aspect="1.7777777777777777"></wistia-player></div>
+        <div class="tauthor">Aesthetic Design</div>
+        <div class="tmetric">Doubled business revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 9 — Thumbnail Wall ═══ -->
+<section class="slide slide-9-wall" data-slide="8">
+  <div class="si">
+    <h2 class="an a1">The Results Speak for Themselves</h2>
+    <p class="sub an a2">Real results from real clinics using the MARKTR system.</p>
+    <div class="thumb-grid an a3">
+      <img src="thumbnails/2.png" alt="Client result">
+      <img src="thumbnails/7.png" alt="Client result">
+      <img src="thumbnails/8.png" alt="Client result">
+      <img src="thumbnails/9.png" alt="Client result">
+      <img src="thumbnails/10.png" alt="Client result">
+      <img src="thumbnails/11.png" alt="Client result">
+      <img src="thumbnails/12.png" alt="Client result">
+      <img src="thumbnails/13.png" alt="Client result">
+      <img src="thumbnails/14.png" alt="Client result">
+      <img src="thumbnails/15.png" alt="Client result">
+      <img src="thumbnails/16.png" alt="Client result">
+      <img src="thumbnails/17.png" alt="Client result">
+      <img src="thumbnails/18.png" alt="Client result">
+      <img src="thumbnails/19.png" alt="Client result">
+      <img src="thumbnails/20.png" alt="Client result">
+      <img src="thumbnails/21.png" alt="Client result">
+      <img src="thumbnails/23.png" alt="Client result">
+      <img src="thumbnails/24.png" alt="Client result">
+      <img src="thumbnails/25.png" alt="Client result">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 10 — ROI Calculator ═══ -->
+<section class="slide slide-10" data-slide="9">
+  <div class="si">
+    <h2 class="an a1">Your Revenue Projection</h2>
+    <p class="sub an a2">Adjust the sliders to match your clinic — see your numbers instantly.</p>
+    <div class="calc-layout">
+      <div class="calc-sliders an a3">
+        <div class="sg">
+          <div class="sg-top"><span class="sg-name">Average Client Value</span><span class="sg-val" id="cv-val">$500</span></div>
+          <input type="range" id="cv" min="200" max="2000" step="50" value="500">
+        </div>
+        <div class="sg">
+          <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="das-val">$50/day</span></div>
+          <input type="range" id="das" min="50" max="200" step="10" value="50">
+        </div>
+        <div class="sg">
+          <div class="sg-top"><span class="sg-name">Number of Clients</span><span class="sg-val" id="nc-val">100</span></div>
+          <input type="range" id="nc" min="50" max="300" step="10" value="100">
+        </div>
+        <div class="clients-display">
+          <span id="clients-summary">&#10003; 100 clients in 90 days<br>Ad spend: $50/day &times; 90 days = $4,500</span>
+        </div>
+      </div>
+      <div class="calc-results an a4">
+        <div class="calc-hero">
+          <div class="calc-hero-label" id="out-hero-label">Your 90-Day Revenue</div>
+          <div class="calc-hero-num" id="out-fv">$50,000</div>
+          <div class="calc-hero-sub">from guaranteed clients alone</div>
+        </div>
+        <div class="calc-secondary">
+          <div class="calc-sec-label">12-Month Revenue Potential</div>
+          <div class="calc-sec-num" id="out-ltv">$200,000</div>
+          <div class="calc-hero-sub">based on avg $2,000 lifetime value</div>
+        </div>
+        <div class="calc-stats-row">
+          <div class="calc-stat">
+            <span class="calc-stat-label">Total Ad Spend</span>
+            <span class="calc-stat-val" id="out-adspend">$4,500</span>
+          </div>
+          <div class="calc-stat">
+            <span class="calc-stat-label">Break Even</span>
+            <span class="calc-stat-val" id="out-breakeven">9 clients</span>
+          </div>
+          <div class="calc-stat">
+            <span class="calc-stat-label">ROI Multiple</span>
+            <span class="calc-stat-val" id="out-roi">11.1x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-bars an a5">
+      <div class="bar-row">
+        <span class="bar-lbl">Ad Spend</span>
+        <div class="bar-track"><div class="bar-fill bar-ad" id="bar-invest" style="width:6%"><span id="bar-invest-v">$4,500</span></div></div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-lbl" id="bar-rev-lbl">90-Day Revenue</span>
+        <div class="bar-track"><div class="bar-fill bar-rev" id="bar-rev" style="width:92%"><span id="bar-rev-v">$50,000</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SLIDE 11 — Investment + Guarantee ═══ -->
+<section class="slide slide-11" data-slide="10">
+  <div class="si">
+    <h2 class="an a1">Your Investment</h2>
+    <div class="pricing-row an a2">
+      <div class="price-card pop">
+        <div class="pop-badge">Most Popular</div>
+        <div class="price-old">$6,000 <span style="font-size:0.78rem;text-decoration:none;color:var(--tx3);font-weight:400">($60/client &times; 100)</span></div>
+        <div class="price-amt">$4,500</div>
+        <div class="price-period">Prepay &amp; Save $1,500</div>
+        <ul class="price-feat">
+          <li><span class="pc">&#10003;</span> Full system build &amp; launch</li>
+          <li><span class="pc">&#10003;</span> Custom intro offer design</li>
+          <li><span class="pc">&#10003;</span> Authority ad creation</li>
+          <li><span class="pc">&#10003;</span> AI booking machine setup</li>
+          <li><span class="pc">&#10003;</span> Weekly strategy calls</li>
+          <li><span class="pc">&#10003;</span> 100 clients guaranteed</li>
+          <li><span class="pc">&#10003;</span> Pain-point offer strategy custom to your clinic</li>
+          <li style="font-weight:600;color:var(--purple)">Only $45/client</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-amt" style="font-size:2.4rem">$2,000<span style="font-size:1rem;font-family:var(--ff);font-weight:400;color:var(--tx2)">/mo</span></div>
+        <div class="price-period">Monthly Plan</div>
+        <ul class="price-feat">
+          <li><span class="pc">&#10003;</span> 90-Day Program (3 payments)</li>
+          <li><span class="pc">&#10003;</span> Full system build &amp; launch</li>
+          <li><span class="pc">&#10003;</span> Authority ad creation</li>
+          <li><span class="pc">&#10003;</span> AI booking machine setup</li>
+          <li><span class="pc">&#10003;</span> Weekly strategy calls</li>
+          <li><span class="pc">&#10003;</span> 100 clients guaranteed</li>
+          <li><span class="pc">&#10003;</span> Pain-point offer strategy custom to your clinic</li>
+        </ul>
+      </div>
+    </div>
+    <div class="guarantee an a3">
+      <div class="ic-lg" style="margin:0 auto 0.6rem"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
+      <h3>Our Guarantee</h3>
+      <p>If we don't deliver your 100 guaranteed clients within 90 days,<br>we keep working for free until we do.</p>
+      <span class="zer">Zero risk. Total accountability.</span>
+    </div>
+  </div>
+</section>
+
+</div><!-- /deck -->
+
+<script>
+(function() {
+  const TOTAL = 11;
+  const LTV_AVG = 2000;
+  const BASE_DAILY = 50;
+  const BASE_CLIENTS = 100;
+  const BASE_DAYS = 90;
+  let current = 0;
+
+  const slides = document.querySelectorAll('.slide');
+  const prevBtn = document.querySelector('.nav-prev');
+  const nextBtn = document.querySelector('.nav-next');
+  const progWrap = document.getElementById('progress');
+  const snumEl = document.getElementById('snum');
+
+  // Build dots
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    progWrap.appendChild(d);
+  }
+  const dots = progWrap.querySelectorAll('.dot');
+
+  slides[0].classList.add('active');
+
+  const deckEl = document.querySelector('.deck');
+
+  function goTo(n) {
+    if (n < 0 || n >= TOTAL || n === current) return;
+    const prev = current;
+    current = n;
+    slides.forEach((s, i) => {
+      if (i !== prev && i !== n) s.style.transition = 'none';
+      else s.style.transition = '';
+      s.classList.remove('active', 'past');
+      if (i < n) s.classList.add('past');
+      else if (i === n) s.classList.add('active');
+    });
+    setTimeout(() => { slides.forEach(s => { s.style.transition = ''; }); }, 50);
+    dots.forEach((d, i) => d.classList.toggle('active', i === n));
+    snumEl.textContent = (n + 1) + ' / ' + TOTAL;
+    prevBtn.classList.toggle('hidden', n === 0);
+    nextBtn.classList.toggle('hidden', n === TOTAL - 1);
+    deckEl.focus({ preventScroll: true });
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); });
+  deckEl.addEventListener('click', () => { deckEl.focus({ preventScroll: true }); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(current - 1); }
+  });
+
+  // ── ROI Calculator ──
+  const cvSlider = document.getElementById('cv');
+  const dasSlider = document.getElementById('das');
+  const ncSlider = document.getElementById('nc');
+  const cvValEl = document.getElementById('cv-val');
+  const dasValEl = document.getElementById('das-val');
+  const ncValEl = document.getElementById('nc-val');
+  const clientsSummary = document.getElementById('clients-summary');
+  const outHeroLabel = document.getElementById('out-hero-label');
+  const outFv = document.getElementById('out-fv');
+  const outLtv = document.getElementById('out-ltv');
+  const outAdspend = document.getElementById('out-adspend');
+  const outBreakeven = document.getElementById('out-breakeven');
+  const outRoi = document.getElementById('out-roi');
+  const barInvest = document.getElementById('bar-invest');
+  const barRev = document.getElementById('bar-rev');
+  const barInvestV = document.getElementById('bar-invest-v');
+  const barRevV = document.getElementById('bar-rev-v');
+  const barRevLbl = document.getElementById('bar-rev-lbl');
+
+  const counters = {
+    fv: { el: outFv, cur: 50000, target: 50000, prefix: '$' },
+    ltv: { el: outLtv, cur: 200000, target: 200000, prefix: '$' },
+    roi: { el: outRoi, cur: 11.1, target: 11.1, prefix: '', suffix: 'x', dec: 1 }
+  };
+  let animFrame = null;
+
+  function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+
+  function updateFill(slider) {
+    const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    slider.style.setProperty('--fill', pct + '%');
+  }
+
+  function calc() {
+    const clientValue = parseInt(cvSlider.value);
+    const dailySpend = parseInt(dasSlider.value);
+    const numClients = parseInt(ncSlider.value);
+
+    cvValEl.textContent = '$' + fmt(clientValue);
+    dasValEl.textContent = '$' + fmt(dailySpend) + '/day';
+    ncValEl.textContent = numClients;
+
+    updateFill(cvSlider);
+    updateFill(dasSlider);
+    updateFill(ncSlider);
+
+    // Base rate: $50/day produces 100 clients in 90 days
+    const clientsPerDay = (dailySpend / BASE_DAILY) * (BASE_CLIENTS / BASE_DAYS);
+    const daysNeeded = Math.ceil(numClients / clientsPerDay);
+    const totalAdSpend = dailySpend * daysNeeded;
+
+    const revenue = numClients * clientValue;
+    const ltvRev = numClients * LTV_AVG;
+    const breakeven = Math.ceil(totalAdSpend / clientValue);
+    const roi = revenue / totalAdSpend;
+
+    // Update summary
+    clientsSummary.innerHTML = '&#10003; ' + numClients + ' clients in ' + daysNeeded + ' days<br>Ad spend: $' + fmt(dailySpend) + '/day &times; ' + daysNeeded + ' days = $' + fmt(totalAdSpend);
+
+    // Update hero label
+    outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
+    barRevLbl.textContent = daysNeeded + '-Day Revenue';
+
+    counters.fv.target = revenue;
+    counters.ltv.target = ltvRev;
+    counters.roi.target = roi;
+
+    outAdspend.textContent = '$' + fmt(totalAdSpend);
+    outBreakeven.textContent = breakeven + ' clients';
+
+    // Bar chart
+    const revPct = 92;
+    const adPct = Math.max(3, (totalAdSpend / revenue) * revPct);
+    barInvest.style.width = adPct + '%';
+    barRev.style.width = revPct + '%';
+    barInvestV.textContent = '$' + fmt(totalAdSpend);
+    barRevV.textContent = '$' + fmt(revenue);
+
+    if (!animFrame) animateCounters();
+  }
+
+  function animateCounters() {
+    let done = true;
+    for (const k in counters) {
+      const c = counters[k];
+      const diff = c.target - c.cur;
+      if (Math.abs(diff) > 0.5) {
+        done = false;
+        c.cur += diff * 0.12;
+      } else {
+        c.cur = c.target;
+      }
+      if (c.dec) {
+        c.el.textContent = c.prefix + c.cur.toFixed(c.dec) + (c.suffix || '');
+      } else {
+        c.el.textContent = c.prefix + fmt(c.cur) + (c.suffix || '');
+      }
+    }
+    if (!done) { animFrame = requestAnimationFrame(animateCounters); }
+    else { animFrame = null; }
+  }
+
+  cvSlider.addEventListener('input', calc);
+  dasSlider.addEventListener('input', calc);
+  ncSlider.addEventListener('input', calc);
+
+  updateFill(cvSlider);
+  updateFill(dasSlider);
+  updateFill(ncSlider);
+})();
+</script>
+</body>
+</html>
