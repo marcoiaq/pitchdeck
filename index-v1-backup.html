@@ -497,48 +497,9 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 .guarantee p { font-size: 1rem; color: var(--tx); font-weight: 400; line-height: 1.6; }
 .guarantee .zer { font-size: 0.88rem; color: var(--gold); font-weight: 600; margin-top: 0.3rem; display: block; }
 
-/* ── Cake icon cards ── */
-.cake-icon {
-  width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;
-  border-radius: 16px; margin: 0 auto 0.5rem;
-}
-.cake-icon svg { width: 44px; height: 44px; }
-.cake-icon-bad { background: #fef0f0; }
-.cake-icon-bad svg { stroke: #c0392b; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.cake-icon-good { background: var(--gold-bg); }
-.cake-icon-good svg { fill: var(--gold); stroke: none; }
-.cake-icons-row { display: flex; gap: 1.2rem; justify-content: center; align-items: flex-start; margin: 1rem 0; }
-.cake-icon-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-.cake-icon-item span { font-size: 0.78rem; color: var(--tx3); font-weight: 500; }
-.cake-side-label { font-size: 0.88rem; color: var(--tx2); text-align: center; margin-top: 0.8rem; font-weight: 400; line-height: 1.4; }
-.cake-side-label strong { color: var(--tx); }
-.cake-good-center { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.cake-icon-lg { width: 100px; height: 100px; border-radius: 20px; margin: 1.5rem auto; }
-.cake-icon-lg svg { width: 60px; height: 60px; }
-
 /* ── Gold shimmer ── */
 @keyframes gpulse { 0%,100% { opacity: 1; } 50% { opacity: 0.8; } }
 .gshim { animation: gpulse 2.5s ease-in-out infinite; }
-
-/* ════════════════ Temperature Check Slide ════════════════ */
-.temp-scale {
-  display: flex; align-items: center; justify-content: center; gap: 1rem;
-  margin: 2.5rem 0 1.5rem; width: 100%; max-width: 700px;
-}
-.temp-endpoint { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-.temp-emoji { font-size: 2.4rem; line-height: 1; }
-.temp-label { font-size: 0.75rem; color: var(--tx3); font-weight: 500; white-space: nowrap; }
-.temp-dots { display: flex; gap: 0.6rem; align-items: center; }
-.temp-dot {
-  width: 52px; height: 52px; border-radius: 50%; border: 2px solid transparent;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--ff-d); font-size: 1.2rem; font-weight: 700; color: #fff;
-  cursor: pointer; transition: all 0.3s var(--ease);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.temp-dot:hover { transform: scale(1.25); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-.temp-dot:active { transform: scale(1.1); }
-.temp-dot.selected { transform: scale(1.3); box-shadow: 0 0 0 4px rgba(255,255,255,0.5), 0 6px 20px rgba(0,0,0,0.25); }
 </style>
 </head>
 <body>
@@ -549,7 +510,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <button class="nav-a nav-prev hidden" aria-label="Previous">&#8249;</button>
 <button class="nav-a nav-next" aria-label="Next">&#8250;</button>
 <div class="progress" id="progress"></div>
-<div class="snum" id="snum">1 / 12</div>
+<div class="snum" id="snum">1 / 11</div>
 
 <div class="deck" tabindex="-1">
 
@@ -569,18 +530,18 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     <div class="pain-grid">
       <div class="pain-card an a2">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-        <h3>The Commodity Trap</h3>
-        <p>You're advertising treatments with discounts — competing on price with every other clinic in your area</p>
+        <h3>Burned by Agencies</h3>
+        <p>You paid thousands for "leads" that never picked up the phone</p>
       </div>
       <div class="pain-card an a3">
         <div class="ic"><svg viewBox="0 0 24 24"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
-        <h3>Invisible Authority</h3>
-        <p>Your ads look like everyone else's — AI images, stock photos, generic promos. No trust, no brand.</p>
+        <h3>70% of Leads Lost</h3>
+        <p>Most agencies hand you a spreadsheet and wish you luck</p>
       </div>
       <div class="pain-card an a4">
         <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></svg></div>
-        <h3>Leaky Follow-Up</h3>
-        <p>Leads come in but no one calls them fast enough. 70% go cold before they ever book.</p>
+        <h3>No Accountability</h3>
+        <p>When results don't come, they blame your front desk</p>
       </div>
     </div>
     <p class="bottom-line an a5">You don't need more leads. You need <strong>clients who actually walk through your door.</strong></p>
@@ -641,12 +602,12 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
       <div class="pillar-card an a3">
         <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg></div>
         <h3>The Irresistible Intro Offer</h3>
-        <p>A value-packed first visit built around your client's pain point — not a discount. Earns trust and opens the door to long-term revenue.</p>
+        <p>A value-packed first visit that earns trust and opens the door to long-term revenue</p>
       </div>
       <div class="pillar-card an a4">
         <div class="ic ic-lg"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M10 9l4 2.5L10 14V9z"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <h3>Aesthetic Authority Ads</h3>
-        <p>Pain-point-led ads using real content from your clinic. Positions you as the authority — not another clinic running promos.</p>
+        <p>Custom video and UGC that positions you as the expert — not template ads</p>
       </div>
       <div class="pillar-card an a5">
         <div class="ic ic-lg"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
@@ -664,31 +625,24 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     <p class="sub an a2">Stop competing on price. Start owning your offer.</p>
     <div class="cake-compare">
       <div class="cake-side cake-bad an a3">
-        <h3 style="text-align:center">Selling Ingredients Separately</h3>
-        <div class="cake-icons-row">
-          <div class="cake-icon-item">
-            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🌾</span></div>
-            <span>Flour</span>
-          </div>
-          <div class="cake-icon-item">
-            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🥚</span></div>
-            <span>Eggs</span>
-          </div>
-          <div class="cake-icon-item">
-            <div class="cake-icon cake-icon-bad"><span style="font-size:40px">🍬</span></div>
-            <span>Sugar</span>
-          </div>
-        </div>
-        <div class="cake-side-label">Selling treatments with discounts = <strong>price war</strong>. You compete on price. You attract bargain hunters.</div>
+        <h3>Selling Individual Treatments</h3>
+        <div class="cake-item"><span>Botox (per unit)</span><span class="price">$12</span></div>
+        <div class="cake-item"><span>Facial Treatment</span><span class="price">$89</span></div>
+        <div class="cake-item"><span>Consultation</span><span class="price">Free</span></div>
+        <div class="cake-item"><span>Lip Filler</span><span class="price">$499</span></div>
+        <div class="cake-result">Everyone offers the same &mdash; price war</div>
       </div>
       <div class="cake-vs an a4">vs</div>
-      <div class="cake-side cake-good cake-good-center an a5">
-        <h3 style="text-align:center">The Whole Cake</h3>
-        <div class="cake-icon cake-icon-lg cake-icon-good"><span style="font-size:72px">🎂</span></div>
-        <div class="cake-side-label">A complete solution named after your client's pain point = <strong>irresistible</strong><br>Entry price: <strong style="color:var(--gold);font-size:1.1rem">$97–$297+</strong></div>
+      <div class="cake-side cake-good an a5">
+        <h3>The Irresistible Intro Offer</h3>
+        <div class="cake-item"><span>Custom treatment bundle</span></div>
+        <div class="cake-item"><span>Unique to YOUR clinic</span></div>
+        <div class="cake-item"><span>Perceived value: 3–5× the price</span></div>
+        <div class="cake-item"><span>Your price</span><span class="price" style="font-size:1.2rem">$97–$297+</span></div>
+        <div class="cake-result">You own the offer &mdash; no comparison</div>
       </div>
     </div>
-    <div class="cake-upsell an a6">We've found <strong>$97</strong> to be the sweet spot, but the entry price is custom to your clinic and treatments. The key: we don't lead with price — we lead with the problem your ideal client wants to fix. Average upsell per intro client: <strong>$500&ndash;$2,000+</strong>.</div>
+    <div class="cake-upsell an a6">It's like selling a cake, not the ingredients. Flour, eggs, and sugar mean nothing alone &mdash; but the whole cake? <strong>Irresistible.</strong> We've found $97 to be the sweet spot, but your offer is custom to your clinic. Average upsell per intro client: <strong>$500&ndash;$2,000+</strong>.</div>
   </div>
 </section>
 
@@ -696,20 +650,20 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <section class="slide slide-6" data-slide="5">
   <div class="si">
     <h2 class="an a1">Pillar 2: Aesthetic Authority Ads</h2>
-    <p class="sub an a2">We position you as the authority in your area — with ads built around pain points, not price tags.</p>
+    <p class="sub an a2">We position you as the expert — not just another clinic running promos.</p>
     <div class="two-col">
       <div class="col-l">
         <div class="diff-block an a3">
           <h3>What other agencies do</h3>
-          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>AI-generated images and generic template ads</span></div>
-          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>Every ad leads with a discount — training your audience to price-shop</span></div>
-          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>No brand authority — you look like every other clinic in your area</span></div>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>AI-generated images and Google template ads</span></div>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>Generic promotions that look like every other clinic</span></div>
+          <div class="diff-row diff-bad"><div class="ic"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div><span>No brand authority — just discounts</span></div>
         </div>
         <div class="diff-block an a4">
           <h3>What we do</h3>
-          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Real video content and client transformations from your clinic</span></div>
-          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Every ad is structured around a pain point your ideal client recognizes</span></div>
-          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Positions you as the trusted authority — people choose you for the solution, not the price</span></div>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Real video content and UGC from your clinic</span></div>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>We qualify prospects in your area before they see your ad</span></div>
+          <div class="diff-row diff-good"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Position you as the authority and real brand</span></div>
         </div>
       </div>
       <div class="an a5">
@@ -749,7 +703,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <section class="slide slide-7" data-slide="6">
   <div class="si">
     <h2 class="an a1">Pillar 3: The Booking Machine</h2>
-    <p class="sub an a2">Multi-channel outreach that books, qualifies, and confirms — so no lead ever slips through the cracks.</p>
+    <p class="sub an a2">Multi-channel outreach that books, qualifies, and confirms — automatically.</p>
     <div class="booking-layers">
       <div class="bl-card an a3">
         <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
@@ -894,113 +848,84 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     <div class="calc-layout">
       <div class="calc-sliders an a3">
         <div class="sg">
+          <div class="sg-top"><span class="sg-name">Intro Offer Price</span><span class="sg-val" id="io-val">$97</span></div>
+          <input type="range" id="io" min="97" max="397" step="10" value="97">
+        </div>
+        <div class="sg">
           <div class="sg-top"><span class="sg-name">Average Client Value</span><span class="sg-val" id="cv-val">$500</span></div>
           <input type="range" id="cv" min="200" max="2000" step="50" value="500">
         </div>
         <div class="sg">
-          <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="das-val">$50/day</span></div>
-          <input type="range" id="das" min="50" max="200" step="10" value="50">
-        </div>
-        <div class="sg">
-          <div class="sg-top"><span class="sg-name">Number of Clients</span><span class="sg-val" id="nc-val">100</span></div>
-          <input type="range" id="nc" min="50" max="300" step="10" value="100">
+          <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="ad-val">$50</span></div>
+          <input type="range" id="ads" min="50" max="150" step="5" value="50">
         </div>
         <div class="clients-display">
-          <span id="clients-summary">&#10003; 100 clients in 90 days<br>Ad spend: $50/day &times; 90 days = $4,500</span>
+          <span>Guaranteed Clients (90 days)</span>
+          <span class="clients-val" id="clients-num">150</span>
         </div>
       </div>
       <div class="calc-results an a4">
         <div class="calc-hero">
-          <div class="calc-hero-label" id="out-hero-label">Your 90-Day Revenue</div>
-          <div class="calc-hero-num" id="out-fv">$50,000</div>
-          <div class="calc-hero-sub">from guaranteed clients alone</div>
+          <div class="calc-hero-label">Your 90-Day Revenue</div>
+          <div class="calc-hero-num" id="out-fv">$75,000</div>
+          <div class="calc-hero-sub">from first-visit clients alone</div>
         </div>
         <div class="calc-secondary">
           <div class="calc-sec-label">12-Month Revenue Potential</div>
-          <div class="calc-sec-num" id="out-ltv">$200,000</div>
+          <div class="calc-sec-num" id="out-ltv">$300,000</div>
           <div class="calc-hero-sub">based on avg $2,000 lifetime value</div>
         </div>
         <div class="calc-stats-row">
           <div class="calc-stat">
-            <span class="calc-stat-label">Total Ad Spend</span>
-            <span class="calc-stat-val" id="out-adspend">$4,500</span>
+            <span class="calc-stat-label">Your Investment</span>
+            <span class="calc-stat-val" id="out-invest">$9,000</span>
           </div>
           <div class="calc-stat">
             <span class="calc-stat-label">Break Even</span>
-            <span class="calc-stat-val" id="out-breakeven">9 clients</span>
+            <span class="calc-stat-val" id="out-breakeven">18 clients</span>
           </div>
           <div class="calc-stat">
             <span class="calc-stat-label">ROI Multiple</span>
-            <span class="calc-stat-val" id="out-roi">11.1x</span>
+            <span class="calc-stat-val" id="out-roi">8.3x</span>
           </div>
         </div>
       </div>
     </div>
     <div class="calc-bars an a5">
       <div class="bar-row">
-        <span class="bar-lbl">Ad Spend</span>
-        <div class="bar-track"><div class="bar-fill bar-ad" id="bar-invest" style="width:6%"><span id="bar-invest-v">$4,500</span></div></div>
+        <span class="bar-lbl">Your Investment</span>
+        <div class="bar-track"><div class="bar-fill bar-ad" id="bar-invest" style="width:12%"><span id="bar-invest-v">$9,000</span></div></div>
       </div>
       <div class="bar-row">
-        <span class="bar-lbl" id="bar-rev-lbl">90-Day Revenue</span>
-        <div class="bar-track"><div class="bar-fill bar-rev" id="bar-rev" style="width:92%"><span id="bar-rev-v">$50,000</span></div></div>
+        <span class="bar-lbl">90-Day Revenue</span>
+        <div class="bar-track"><div class="bar-fill bar-rev" id="bar-rev" style="width:92%"><span id="bar-rev-v">$75,000</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SLIDE 11 — Temperature Check ═══ -->
+<!-- ═══ SLIDE 11 — Investment + Guarantee ═══ -->
 <section class="slide slide-11" data-slide="10">
   <div class="si">
-    <h2 class="an a1">What Do You Think So Far?</h2>
-    <p class="sub an a2">On a scale of 1 to 10, how are you feeling about this?</p>
-    <div class="temp-scale an a3">
-      <div class="temp-endpoint">
-        <span class="temp-emoji">&#128545;</span>
-        <span class="temp-label">I hate this</span>
-      </div>
-      <div class="temp-dots">
-        <div class="temp-dot an a3" style="background:#e74c3c" onclick="this.classList.toggle('selected')">1</div>
-        <div class="temp-dot an a4" style="background:#e25d3b" onclick="this.classList.toggle('selected')">2</div>
-        <div class="temp-dot an a5" style="background:#dd733a" onclick="this.classList.toggle('selected')">3</div>
-        <div class="temp-dot an a6" style="background:#d88939" onclick="this.classList.toggle('selected')">4</div>
-        <div class="temp-dot an a7" style="background:#d39f38" onclick="this.classList.toggle('selected')">5</div>
-        <div class="temp-dot an a8" style="background:#baa832" onclick="this.classList.toggle('selected')">6</div>
-        <div class="temp-dot an a9" style="background:#a1b12c" onclick="this.classList.toggle('selected')">7</div>
-        <div class="temp-dot an a10" style="background:#88ba26" onclick="this.classList.toggle('selected')">8</div>
-        <div class="temp-dot an a10" style="background:#5fb31e" onclick="this.classList.toggle('selected')">9</div>
-        <div class="temp-dot an a10" style="background:#27ae60" onclick="this.classList.toggle('selected')">10</div>
-      </div>
-      <div class="temp-endpoint">
-        <span class="temp-emoji">&#129297;</span>
-        <span class="temp-label">I love it</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SLIDE 12 — Investment + Guarantee ═══ -->
-<section class="slide slide-12" data-slide="11">
-  <div class="si">
     <h2 class="an a1">Your Investment</h2>
-    <div class="pricing-row an a2">
-      <div class="price-card pop">
-        <div class="pop-badge">Most Popular</div>
-        <div class="price-old">$6,000</div>
-        <div class="price-amt" style="font-size:3.4rem">$4,500</div>
-        <div class="price-period">Prepay &amp; Save $1,500</div>
-        <p style="font-size:1.05rem;font-weight:600;color:var(--purple);margin-top:0.8rem">Only $45/client</p>
-      </div>
-      <div class="price-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-        <div class="price-amt" style="font-size:3rem">$2,000<span style="font-size:1rem;font-family:var(--ff);font-weight:400;color:var(--tx2)">/mo</span></div>
-        <div class="price-period">Monthly Plan</div>
-        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.3rem">3 monthly payments</p>
-      </div>
+    <div class="price-card pop an a2" style="max-width:400px; margin:0 auto;">
+      <div class="pop-badge">90-Day Program</div>
+      <div class="price-amt">$4,500</div>
+      <div class="price-period">One-Time Investment</div>
+      <ul class="price-feat">
+        <li><span class="pc">&#10003;</span> Full system build &amp; launch</li>
+        <li><span class="pc">&#10003;</span> Custom intro offer design</li>
+        <li><span class="pc">&#10003;</span> Authority ad creation</li>
+        <li><span class="pc">&#10003;</span> AI booking machine setup</li>
+        <li><span class="pc">&#10003;</span> Weekly strategy calls</li>
+        <li><span class="pc">&#10003;</span> 150 guaranteed clients ($97 intro)</li>
+      </ul>
     </div>
-    <div class="guarantee an a3">
+    <p class="pnote an a3">After 90 days: $1,000/mo + 20% per intro client. You only pay when we deliver.</p>
+    <div class="guarantee an a4">
       <div class="ic-lg" style="margin:0 auto 0.6rem"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
       <h3>Our Guarantee</h3>
-      <p>If we don't deliver your 100 clients within 90 days,<br>we keep working for free until we do.</p>
+      <p>If we don't deliver your guaranteed clients within 90 days,<br>we keep working for free until we do.</p>
       <span class="zer">Zero risk. Total accountability.</span>
     </div>
   </div>
@@ -1010,11 +935,10 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 
 <script>
 (function() {
-  const TOTAL = 12;
+  const TOTAL = 11;
+  const AD_DAYS = 90;
+  const PROGRAM_COST = 4500;
   const LTV_AVG = 2000;
-  const BASE_DAILY = 50;
-  const BASE_CLIENTS = 100;
-  const BASE_DAYS = 90;
   let current = 0;
 
   const slides = document.querySelectorAll('.slide');
@@ -1065,29 +989,32 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   });
 
   // ── ROI Calculator ──
+  const ioSlider = document.getElementById('io');
   const cvSlider = document.getElementById('cv');
-  const dasSlider = document.getElementById('das');
-  const ncSlider = document.getElementById('nc');
+  const adsSlider = document.getElementById('ads');
+  const ioValEl = document.getElementById('io-val');
   const cvValEl = document.getElementById('cv-val');
-  const dasValEl = document.getElementById('das-val');
-  const ncValEl = document.getElementById('nc-val');
-  const clientsSummary = document.getElementById('clients-summary');
-  const outHeroLabel = document.getElementById('out-hero-label');
+  const adValEl = document.getElementById('ad-val');
+  const clientsNumEl = document.getElementById('clients-num');
   const outFv = document.getElementById('out-fv');
   const outLtv = document.getElementById('out-ltv');
-  const outAdspend = document.getElementById('out-adspend');
+  const outInvest = document.getElementById('out-invest');
   const outBreakeven = document.getElementById('out-breakeven');
   const outRoi = document.getElementById('out-roi');
   const barInvest = document.getElementById('bar-invest');
   const barRev = document.getElementById('bar-rev');
   const barInvestV = document.getElementById('bar-invest-v');
   const barRevV = document.getElementById('bar-rev-v');
-  const barRevLbl = document.getElementById('bar-rev-lbl');
+
+  function getClients(introPrice) {
+    return Math.max(50, Math.round(150 - (introPrice - 97) * 0.5));
+  }
 
   const counters = {
-    fv: { el: outFv, cur: 50000, target: 50000, prefix: '$' },
-    ltv: { el: outLtv, cur: 200000, target: 200000, prefix: '$' },
-    roi: { el: outRoi, cur: 11.1, target: 11.1, prefix: '', suffix: 'x', dec: 1 }
+    fv: { el: outFv, cur: 75000, target: 75000, prefix: '$' },
+    ltv: { el: outLtv, cur: 300000, target: 300000, prefix: '$' },
+    invest: { el: outInvest, cur: 9000, target: 9000, prefix: '$' },
+    roi: { el: outRoi, cur: 8.3, target: 8.3, prefix: '', suffix: 'x', dec: 1 }
   };
   let animFrame = null;
 
@@ -1099,49 +1026,40 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   }
 
   function calc() {
+    const introPrice = parseInt(ioSlider.value);
     const clientValue = parseInt(cvSlider.value);
-    const dailySpend = parseInt(dasSlider.value);
-    const numClients = parseInt(ncSlider.value);
+    const daily = parseInt(adsSlider.value);
+    const clients = getClients(introPrice);
 
+    ioValEl.textContent = '$' + fmt(introPrice);
     cvValEl.textContent = '$' + fmt(clientValue);
-    dasValEl.textContent = '$' + fmt(dailySpend) + '/day';
-    ncValEl.textContent = numClients;
+    adValEl.textContent = '$' + fmt(daily);
+    clientsNumEl.textContent = clients;
 
+    updateFill(ioSlider);
     updateFill(cvSlider);
-    updateFill(dasSlider);
-    updateFill(ncSlider);
+    updateFill(adsSlider);
 
-    // Base rate: $50/day produces 100 clients in 90 days
-    const clientsPerDay = (dailySpend / BASE_DAILY) * (BASE_CLIENTS / BASE_DAYS);
-    const daysNeeded = Math.ceil(numClients / clientsPerDay);
-    const totalAdSpend = dailySpend * daysNeeded;
+    const fvRev = clients * clientValue;
+    const ltvRev = clients * LTV_AVG;
+    const totalInvest = PROGRAM_COST + (daily * AD_DAYS);
+    const breakeven = Math.ceil(totalInvest / clientValue);
+    const roi = fvRev / totalInvest;
 
-    const revenue = numClients * clientValue;
-    const ltvRev = numClients * LTV_AVG;
-    const breakeven = Math.ceil(totalAdSpend / clientValue);
-    const roi = revenue / totalAdSpend;
-
-    // Update summary
-    clientsSummary.innerHTML = '&#10003; ' + numClients + ' clients in ' + daysNeeded + ' days<br>Ad spend: $' + fmt(dailySpend) + '/day &times; ' + daysNeeded + ' days = $' + fmt(totalAdSpend);
-
-    // Update hero label
-    outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
-    barRevLbl.textContent = daysNeeded + '-Day Revenue';
-
-    counters.fv.target = revenue;
+    counters.fv.target = fvRev;
     counters.ltv.target = ltvRev;
+    counters.invest.target = totalInvest;
     counters.roi.target = roi;
 
-    outAdspend.textContent = '$' + fmt(totalAdSpend);
     outBreakeven.textContent = breakeven + ' clients';
 
-    // Bar chart
+    // Bar chart: Investment vs 90-Day Revenue
     const revPct = 92;
-    const adPct = Math.max(3, (totalAdSpend / revenue) * revPct);
-    barInvest.style.width = adPct + '%';
+    const investPct = Math.max(3, (totalInvest / fvRev) * revPct);
+    barInvest.style.width = investPct + '%';
     barRev.style.width = revPct + '%';
-    barInvestV.textContent = '$' + fmt(totalAdSpend);
-    barRevV.textContent = '$' + fmt(revenue);
+    barInvestV.textContent = '$' + fmt(totalInvest);
+    barRevV.textContent = '$' + fmt(fvRev);
 
     if (!animFrame) animateCounters();
   }
@@ -1167,13 +1085,13 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     else { animFrame = null; }
   }
 
+  ioSlider.addEventListener('input', calc);
   cvSlider.addEventListener('input', calc);
-  dasSlider.addEventListener('input', calc);
-  ncSlider.addEventListener('input', calc);
+  adsSlider.addEventListener('input', calc);
 
+  updateFill(ioSlider);
   updateFill(cvSlider);
-  updateFill(dasSlider);
-  updateFill(ncSlider);
+  updateFill(adsSlider);
 })();
 </script>
 </body>
