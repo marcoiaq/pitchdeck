@@ -902,18 +902,18 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
           <input type="range" id="das" min="50" max="200" step="10" value="50">
         </div>
         <div class="sg">
-          <div class="sg-top"><span class="sg-name">Number of Clients</span><span class="sg-val" id="nc-val">100</span></div>
+          <div class="sg-top"><span class="sg-name">Potential Clients (90 days)</span><span class="sg-val" id="nc-val">100</span></div>
           <input type="range" id="nc" min="50" max="300" step="10" value="100">
         </div>
         <div class="clients-display">
-          <span id="clients-summary">&#10003; 100 clients in 90 days<br>Ad spend: $50/day &times; 90 days = $4,500</span>
+          <span id="clients-summary">&#10003; Minimum ad spend: $50/day &times; 90 days = $4,500<br>Potential based on your clinic&rsquo;s numbers</span>
         </div>
       </div>
       <div class="calc-results an a4">
         <div class="calc-hero">
           <div class="calc-hero-label" id="out-hero-label">Your 90-Day Revenue</div>
           <div class="calc-hero-num" id="out-fv">$50,000</div>
-          <div class="calc-hero-sub">from guaranteed clients alone</div>
+          <div class="calc-hero-sub">based on your numbers</div>
         </div>
         <div class="calc-secondary">
           <div class="calc-sec-label">12-Month Revenue Potential</div>
@@ -983,25 +983,20 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <section class="slide slide-12" data-slide="11">
   <div class="si">
     <h2 class="an a1">Your Investment</h2>
-    <div class="pricing-row an a2">
-      <div class="price-card pop">
-        <div class="pop-badge">Most Popular</div>
-        <div class="price-old">$6,000</div>
+    <div class="pricing-row an a2" style="justify-content:center">
+      <div class="price-card pop" style="max-width:420px;width:100%">
+        <div class="pop-badge">90-Day Partnership</div>
         <div class="price-amt" style="font-size:3.4rem">$4,500</div>
-        <div class="price-period">Prepay &amp; Save $1,500</div>
-        <p style="font-size:1.05rem;font-weight:600;color:var(--purple);margin-top:0.8rem">Only $45/client</p>
-      </div>
-      <div class="price-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-        <div class="price-amt" style="font-size:3rem">$2,000<span style="font-size:1rem;font-family:var(--ff);font-weight:400;color:var(--tx2)">/mo</span></div>
-        <div class="price-period">Monthly Plan</div>
-        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.3rem">3 monthly payments</p>
+        <div class="price-period">Full system build &bull; Ads &bull; Booking Machine</div>
+        <p style="font-size:1.05rem;font-weight:600;color:var(--purple);margin-top:0.8rem">Minimum ad spend: $50/day</p>
+        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.5rem">After 90 days: 30% of every intro offer sale</p>
       </div>
     </div>
     <div class="guarantee an a3">
       <div class="ic-lg" style="margin:0 auto 0.6rem"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
       <h3>Our Guarantee</h3>
-      <p>If we don't deliver your 100 clients within 90 days,<br>we keep working for free until we do.</p>
-      <span class="zer">Zero risk. Total accountability.</span>
+      <p>If you don&rsquo;t make your $4,500 back in intro offer revenue within 90 days,<br>we refund you in full.</p>
+      <span class="zer">Full refund. No fine print.</span>
     </div>
   </div>
 </section>
@@ -1122,7 +1117,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     const roi = revenue / totalAdSpend;
 
     // Update summary
-    clientsSummary.innerHTML = '&#10003; ' + numClients + ' clients in ' + daysNeeded + ' days<br>Ad spend: $' + fmt(dailySpend) + '/day &times; ' + daysNeeded + ' days = $' + fmt(totalAdSpend);
+    clientsSummary.innerHTML = 'Potential: ' + numClients + ' clients &bull; $' + fmt(dailySpend) + '/day ad spend &times; ' + daysNeeded + ' days = $' + fmt(totalAdSpend);
 
     // Update hero label
     outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
