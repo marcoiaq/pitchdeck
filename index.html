@@ -770,14 +770,14 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
         <div class="ic ic-lg"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7a2 2 0 011.72 2z"/></svg></div>
         <div class="bl-text">
           <h3>Live Concierge</h3>
-          <p>A real person calls every lead for follow-up. Complex cases, hesitant prospects — no one slips through.</p>
+          <p>A real person follows up by text and phone &mdash; qualifies every lead, asks about their concerns, and makes sure they fit your clinic&rsquo;s criteria before they ever reach your chair.</p>
         </div>
 
         <div class="bl-preview">
           <div class="call-visual">
             <div class="ic-lg"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.7 2.35a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.75.34 1.54.57 2.35.7a2 2 0 011.72 2z"/></svg></div>
-            <p><strong style="color:var(--tx)">Personal follow-up call</strong></p>
-            <p>Handles objections, answers questions, and books the appointment over the phone.</p>
+            <p><strong style="color:var(--tx)">Personal follow-up by text &amp; phone</strong></p>
+            <p>Handles objections, qualifies leads on concerns and budget, checks clinic fit, and books the appointment &mdash; with a human touch.</p>
           </div>
         </div>
       </div>
@@ -927,7 +927,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
           </div>
           <div class="calc-stat">
             <span class="calc-stat-label">Break Even</span>
-            <span class="calc-stat-val" id="out-breakeven">9 clients</span>
+            <span class="calc-stat-val" id="out-breakeven">18 clients</span>
           </div>
           <div class="calc-stat">
             <span class="calc-stat-label">ROI Multiple</span>
@@ -987,15 +987,18 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
       <div class="price-card pop" style="max-width:420px;width:100%">
         <div class="pop-badge">90-Day Partnership</div>
         <div class="price-amt" style="font-size:3.4rem">$4,500</div>
-        <p style="font-size:1.05rem;font-weight:600;color:var(--purple);margin-top:0.8rem">Minimum ad spend: $50/day</p>
-        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.5rem">After 90 days: 30% of every intro offer sale</p>
+        <p style="font-size:1rem;color:var(--tx2);margin-top:0.6rem;font-weight:400">Full system build &bull; Ad creative &bull; Booking Machine</p>
+        <div style="margin-top:1rem;padding:0.8rem 1.2rem;background:var(--purple-bg);border:1px solid var(--purple-bdr);border-radius:12px">
+          <p style="font-size:0.95rem;font-weight:600;color:var(--purple);margin:0">Ad spend (paid directly to Facebook)</p>
+          <p style="font-size:0.88rem;color:var(--tx2);margin:0.3rem 0 0;font-weight:400">$50/day minimum &mdash; approximately $4,500 over 90 days</p>
+        </div>
+        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.8rem">After 90 days: 30% of every intro offer sale</p>
       </div>
     </div>
     <div class="guarantee an a3">
       <div class="ic-lg" style="margin:0 auto 0.6rem"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
       <h3>Our Guarantee</h3>
-      <p>If you don&rsquo;t make your $4,500 + ad spend back in intro offer revenue within 90 days,<br>we refund you in full.</p>
-      <span class="zer">Full refund. No fine print.</span>
+      <p>If you don&rsquo;t make your total investment back within 90 days &mdash; that&rsquo;s our service fee plus your ad spend &mdash; you choose: we refund your service fee entirely, or we keep working for free until you do. Either way, you&rsquo;re covered.</p>
     </div>
   </div>
 </section>
@@ -1005,6 +1008,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <script>
 (function() {
   const TOTAL = 12;
+  const SERVICE_FEE = 4500;
   const LTV_AVG = 2000;
   const BASE_DAILY = 50;
   const BASE_CLIENTS = 100;
@@ -1112,7 +1116,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 
     const revenue = numClients * clientValue;
     const ltvRev = numClients * LTV_AVG;
-    const breakeven = Math.ceil(totalAdSpend / clientValue);
+    const breakeven = Math.ceil((SERVICE_FEE + totalAdSpend) / clientValue);
     const roi = revenue / totalAdSpend;
 
     // Update summary
