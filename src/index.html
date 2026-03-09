@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MARKTR — 300 Clients in 90 Days</title>
+<title>MARKTR — Med Spa Growth System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -898,15 +898,15 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
           <input type="range" id="cv" min="200" max="2000" step="50" value="500">
         </div>
         <div class="sg">
-          <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="das-val">$100/day</span></div>
-          <input type="range" id="das" min="100" max="500" step="10" value="100">
+          <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="das-val">$50/day</span></div>
+          <input type="range" id="das" min="50" max="500" step="10" value="50">
         </div>
-        <div class="sg" style="display:none">
-          <div class="sg-top"><span class="sg-name">Purchased Clients</span><span class="sg-val" id="nc-val">300</span></div>
+        <div class="sg">
+          <div class="sg-top"><span class="sg-name">Purchased Clients</span><span class="sg-val" id="nc-val">100</span></div>
           <input type="range" id="nc" min="50" max="500" step="10" value="300">
         </div>
         <div class="clients-display">
-          <span id="clients-summary">&#10003; 300 clients in 90 days at $100/day &mdash; increase budget to get there faster</span>
+          <span id="clients-summary">&#10003; 100 clients in 90 days at $50/day &mdash; increase budget to get there faster</span>
         </div>
       </div>
       <div class="calc-results an a4">
@@ -986,16 +986,16 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     <div class="pricing-row an a2" style="display:flex;justify-content:center">
       <div class="price-card pop" style="max-width:420px;width:100%">
         <div class="pop-badge">90-Day Partnership</div>
-        <div class="price-amt" style="font-size:3.4rem">$6,000</div>
+        <div class="price-amt" style="font-size:3.4rem">$4,500</div>
         <p style="font-size:1rem;color:var(--tx2);margin-top:0.6rem;font-weight:400">for 90 days</p>
-        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.5rem">300 new clients, $100 intro offer</p>
-        <p style="font-size:0.88rem;color:var(--purple);font-weight:600;margin-top:0.8rem">$100/day minimum ad spend</p>
+        <p style="font-size:0.95rem;color:var(--tx2);margin-top:0.5rem">30% on intro offer after</p>
+        <p style="font-size:0.88rem;color:var(--purple);font-weight:600;margin-top:0.8rem">Min ad spend $50/day</p>
       </div>
     </div>
     <div class="guarantee an a3">
       <div class="ic-lg" style="margin:0 auto 0.6rem"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg></div>
       <h3>Our Guarantee</h3>
-      <p>If we don&rsquo;t bring you 300 clients in 90 days, we keep working for free until we do.</p>
+      <p>If you don&rsquo;t make your money back, we either work for free or we refund you.</p>
     </div>
   </div>
 </section>
@@ -1005,10 +1005,10 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 <script>
 (function() {
   const TOTAL = 12;
-  const SERVICE_FEE = 6000;
+  const SERVICE_FEE = 4500;
   const LTV_AVG = 2000;
-  const BASE_DAILY = 100;
-  const BASE_CLIENTS = 300;
+  const BASE_DAILY = 50;
+  const BASE_CLIENTS = 100;
   const BASE_DAYS = 90;
   let current = 0;
 
@@ -1096,11 +1096,12 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   function calc() {
     const clientValue = parseInt(cvSlider.value);
     const dailySpend = parseInt(dasSlider.value);
-    const numClients = 300; // fixed for this offer
+    const numClients = parseInt(ncSlider.value);
 
     cvValEl.textContent = '$' + fmt(clientValue);
     dasValEl.textContent = '$' + fmt(dailySpend) + '/day';
 
+    ncValEl.textContent = numClients;
     updateFill(cvSlider);
     updateFill(dasSlider);
     updateFill(ncSlider);

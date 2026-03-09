@@ -12,6 +12,5 @@
       "source": "/",
       "destination": "/src/index.html"
     }
-  ],
-  "cleanUrls": true
+  ]
 }
