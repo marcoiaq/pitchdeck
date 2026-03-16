@@ -816,7 +816,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
 
         For a CLIENT PHOTO — replace the tcard-media div contents:
           <div class="tcard-media">
-            <img src="/src/photos/client1.jpg" alt="Dr. Smith">
+            <img src="photos/client1.jpg" alt="Dr. Smith">
           </div>
 
         For a VIDEO TESTIMONIAL (local file):
@@ -863,25 +863,25 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     <h2 class="an a1">The Results Speak for Themselves</h2>
     <p class="sub an a2">Real results from real clinics using the MARKTR system.</p>
     <div class="thumb-grid an a3">
-      <img src="/src/thumbnails/2.png" alt="Client result">
-      <img src="/src/thumbnails/7.png" alt="Client result">
-      <img src="/src/thumbnails/8.png" alt="Client result">
-      <img src="/src/thumbnails/9.png" alt="Client result">
-      <img src="/src/thumbnails/10.png" alt="Client result">
-      <img src="/src/thumbnails/11.png" alt="Client result">
-      <img src="/src/thumbnails/12.png" alt="Client result">
-      <img src="/src/thumbnails/13.png" alt="Client result">
-      <img src="/src/thumbnails/14.png" alt="Client result">
-      <img src="/src/thumbnails/15.png" alt="Client result">
-      <img src="/src/thumbnails/16.png" alt="Client result">
-      <img src="/src/thumbnails/17.png" alt="Client result">
-      <img src="/src/thumbnails/18.png" alt="Client result">
-      <img src="/src/thumbnails/19.png" alt="Client result">
-      <img src="/src/thumbnails/20.png" alt="Client result">
-      <img src="/src/thumbnails/21.png" alt="Client result">
-      <img src="/src/thumbnails/23.png" alt="Client result">
-      <img src="/src/thumbnails/24.png" alt="Client result">
-      <img src="/src/thumbnails/25.png" alt="Client result">
+      <img src="thumbnails/2.png" alt="Client result">
+      <img src="thumbnails/7.png" alt="Client result">
+      <img src="thumbnails/8.png" alt="Client result">
+      <img src="thumbnails/9.png" alt="Client result">
+      <img src="thumbnails/10.png" alt="Client result">
+      <img src="thumbnails/11.png" alt="Client result">
+      <img src="thumbnails/12.png" alt="Client result">
+      <img src="thumbnails/13.png" alt="Client result">
+      <img src="thumbnails/14.png" alt="Client result">
+      <img src="thumbnails/15.png" alt="Client result">
+      <img src="thumbnails/16.png" alt="Client result">
+      <img src="thumbnails/17.png" alt="Client result">
+      <img src="thumbnails/18.png" alt="Client result">
+      <img src="thumbnails/19.png" alt="Client result">
+      <img src="thumbnails/20.png" alt="Client result">
+      <img src="thumbnails/21.png" alt="Client result">
+      <img src="thumbnails/23.png" alt="Client result">
+      <img src="thumbnails/24.png" alt="Client result">
+      <img src="thumbnails/25.png" alt="Client result">
     </div>
   </div>
 </section>
@@ -899,14 +899,14 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
         </div>
         <div class="sg">
           <div class="sg-top"><span class="sg-name">Daily Ad Spend</span><span class="sg-val" id="das-val">$100/day</span></div>
-          <input type="range" id="das" min="100" max="500" step="10" value="100">
+          <input type="range" id="das" min="50" max="200" step="10" value="50">
         </div>
-        <div class="sg" style="display:none">
-          <div class="sg-top"><span class="sg-name">Purchased Clients</span><span class="sg-val" id="nc-val">300</span></div>
-          <input type="range" id="nc" min="50" max="500" step="10" value="300">
+        <div class="sg">
+          <div class="sg-top"><span class="sg-name">Potential Clients (90 days)</span><span class="sg-val" id="nc-val">100</span></div>
+          <input type="range" id="nc" min="50" max="300" step="10" value="100">
         </div>
         <div class="clients-display">
-          <span id="clients-summary">&#10003; 300 clients in 90 days at $100/day &mdash; increase budget to get there faster</span>
+          <span id="clients-summary">&#10003; Minimum ad spend: $50/day &times; 90 days = $4,500<br>Potential based on your clinic&rsquo;s numbers</span>
         </div>
       </div>
       <div class="calc-results an a4">
@@ -916,7 +916,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
           <div class="calc-hero-sub">based on your numbers</div>
         </div>
         <div class="calc-secondary">
-          <div class="calc-sec-label">12-Month Revenue Projection</div>
+          <div class="calc-sec-label">12-Month Revenue Potential</div>
           <div class="calc-sec-num" id="out-ltv">$200,000</div>
           <div class="calc-hero-sub">based on avg $2,000 lifetime value</div>
         </div>
@@ -1007,8 +1007,8 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   const TOTAL = 12;
   const SERVICE_FEE = 6000;
   const LTV_AVG = 2000;
-  const BASE_DAILY = 100;
-  const BASE_CLIENTS = 300;
+  const BASE_DAILY = 50;
+  const BASE_CLIENTS = 100;
   const BASE_DAYS = 90;
   let current = 0;
 
@@ -1096,10 +1096,11 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
   function calc() {
     const clientValue = parseInt(cvSlider.value);
     const dailySpend = parseInt(dasSlider.value);
-    const numClients = 300; // fixed for this offer
+    const numClients = parseInt(ncSlider.value);
 
     cvValEl.textContent = '$' + fmt(clientValue);
     dasValEl.textContent = '$' + fmt(dailySpend) + '/day';
+    ncValEl.textContent = numClients;
 
     updateFill(cvSlider);
     updateFill(dasSlider);
@@ -1116,119 +1117,7 @@ input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius
     const roi = revenue / totalAdSpend;
 
     // Update summary
-    clientsSummary.innerHTML = '&#10003; ' + numClients + ' clients in <strong>' + daysNeeded + ' days</strong> at 
-
-    // Update hero label
-    outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
-    barRevLbl.textContent = daysNeeded + '-Day Revenue';
-
-    counters.fv.target = revenue;
-    counters.ltv.target = ltvRev;
-    counters.roi.target = roi;
-
-    outAdspend.textContent = '$' + fmt(totalAdSpend);
-    outBreakeven.textContent = breakeven + ' clients';
-
-    // Bar chart
-    const revPct = 92;
-    const adPct = Math.max(3, (totalAdSpend / revenue) * revPct);
-    barInvest.style.width = adPct + '%';
-    barRev.style.width = revPct + '%';
-    barInvestV.textContent = '$' + fmt(totalAdSpend);
-    barRevV.textContent = '$' + fmt(revenue);
-
-    if (!animFrame) animateCounters();
-  }
-
-  function animateCounters() {
-    let done = true;
-    for (const k in counters) {
-      const c = counters[k];
-      const diff = c.target - c.cur;
-      if (Math.abs(diff) > 0.5) {
-        done = false;
-        c.cur += diff * 0.12;
-      } else {
-        c.cur = c.target;
-      }
-      if (c.dec) {
-        c.el.textContent = c.prefix + c.cur.toFixed(c.dec) + (c.suffix || '');
-      } else {
-        c.el.textContent = c.prefix + fmt(c.cur) + (c.suffix || '');
-      }
-    }
-    if (!done) { animFrame = requestAnimationFrame(animateCounters); }
-    else { animFrame = null; }
-  }
-
-  cvSlider.addEventListener('input', calc);
-  dasSlider.addEventListener('input', calc);
-  ncSlider.addEventListener('input', calc);
-
-  updateFill(cvSlider);
-  updateFill(dasSlider);
-  updateFill(ncSlider);
-})();
-</script>
-</body>
-</html>
- + fmt(dailySpend) + '/day &mdash; 
-
-    // Update hero label
-    outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
-    barRevLbl.textContent = daysNeeded + '-Day Revenue';
-
-    counters.fv.target = revenue;
-    counters.ltv.target = ltvRev;
-    counters.roi.target = roi;
-
-    outAdspend.textContent = '$' + fmt(totalAdSpend);
-    outBreakeven.textContent = breakeven + ' clients';
-
-    // Bar chart
-    const revPct = 92;
-    const adPct = Math.max(3, (totalAdSpend / revenue) * revPct);
-    barInvest.style.width = adPct + '%';
-    barRev.style.width = revPct + '%';
-    barInvestV.textContent = '$' + fmt(totalAdSpend);
-    barRevV.textContent = '$' + fmt(revenue);
-
-    if (!animFrame) animateCounters();
-  }
-
-  function animateCounters() {
-    let done = true;
-    for (const k in counters) {
-      const c = counters[k];
-      const diff = c.target - c.cur;
-      if (Math.abs(diff) > 0.5) {
-        done = false;
-        c.cur += diff * 0.12;
-      } else {
-        c.cur = c.target;
-      }
-      if (c.dec) {
-        c.el.textContent = c.prefix + c.cur.toFixed(c.dec) + (c.suffix || '');
-      } else {
-        c.el.textContent = c.prefix + fmt(c.cur) + (c.suffix || '');
-      }
-    }
-    if (!done) { animFrame = requestAnimationFrame(animateCounters); }
-    else { animFrame = null; }
-  }
-
-  cvSlider.addEventListener('input', calc);
-  dasSlider.addEventListener('input', calc);
-  ncSlider.addEventListener('input', calc);
-
-  updateFill(cvSlider);
-  updateFill(dasSlider);
-  updateFill(ncSlider);
-})();
-</script>
-</body>
-</html>
- + fmt(totalAdSpend) + ' total ad spend';
+    clientsSummary.innerHTML = 'Potential: ' + numClients + ' clients &bull; $' + fmt(dailySpend) + '/day ad spend &times; ' + daysNeeded + ' days = $' + fmt(totalAdSpend);
 
     // Update hero label
     outHeroLabel.textContent = 'Your ' + daysNeeded + '-Day Revenue';
